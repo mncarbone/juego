@@ -13,6 +13,8 @@ class JuegoQt(QApplication):
 
     def asociarEventos(self):
         self.ui.btn1.clicked.connect(self.btn1_click)
+        self.ui.btn2.clicked.connect(self.btn2_click)
+        self.ui.btn3.clicked.connect(self.btn3_click)
 
     def btn1_click(self):
         self.apostarPor(1)
@@ -28,6 +30,10 @@ class JuegoQt(QApplication):
         ganancia = self.juego.apostar(apuesta, unSombrero)
         salida = 'Ganó '+str(ganancia) if ganancia > 0 else 'Perdió'
         self.ui.lblSalida.setText(salida)
+        self.actualizarDatos()
+
+    def actualizarDatos(self):
+        self.ui.textSaldo.setText(str(self.juego.getSaldo()))
         
         
         
