@@ -1,9 +1,11 @@
 from PyQt4.QtGui import QApplication
 from PyQt4.uic import loadUi
+from juego import *
 
 class JuegoQt(QApplication):
     
     def iniciar(self):
+        self.juego = Juego(500)
         self.ui = loadUi('ventana.ui')
         self.asociarEventos()
         self.ui.show()
@@ -23,7 +25,7 @@ class JuegoQt(QApplication):
         
     def apostarPor(self, unSombrero): 
         apuesta = self.ui.textApuesta.text()
-        print(apuesta)
+        
         
 
 unJuego = JuegoQt([])
