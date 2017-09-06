@@ -24,7 +24,11 @@ class JuegoQt(QApplication):
         self.apostarPor(3)
         
     def apostarPor(self, unSombrero): 
-        apuesta = self.ui.textApuesta.text()
+        apuesta = int(self.ui.textApuesta.text())
+        ganancia = self.juego.apostar(apuesta, unSombrero)
+        salida = 'Ganó '+str(ganancia) if ganancia > 0 else 'Perdió'
+        self.ui.lblSalida.setText(salida)
+        
         
         
 
